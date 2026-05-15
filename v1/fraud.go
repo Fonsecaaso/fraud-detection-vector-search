@@ -1,4 +1,4 @@
-package main
+package v1
 
 import (
 	"math"
@@ -52,19 +52,6 @@ func (idx *Index) Search(query Vector, k int) []Neighbor {
 	})
 
 	return neighbors[:k]
-}
-
-func Predict(idx *Index, query Vector) bool {
-	top := idx.Search(query, 5)
-
-	frauds := 0
-	for _, n := range top {
-		if n.Fraud {
-			frauds++
-		}
-	}
-
-	return frauds >= 3
 }
 
 // gera número float pequeno em volta de um centro
